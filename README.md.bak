@@ -7,8 +7,14 @@ The files in this repository were used to configure the network depicted below.
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire
 deployment pictured above. Alternatively, select portions of the YAML file may be used to install only certain pieces of it, such as Filebeat.
 
-  - [ELK Installation File](https://github.com/Abdelmalek-Aouissa/ELK_Stack_Deployment/blob/main/Ansible/install-elk.yml)
-
+  - [ELK Installation YAML File](https://github.com/Abdelmalek-Aouissa/ELK_Stack_Deployment/blob/main/Ansible/install-elk.yml)
+  - [Webservers-Docker Configuration YAML File](https://github.com/Abdelmalek-Aouissa/ELK_Stack_Deployment/blob/main/Ansible/Pentest.yml)
+  - [Filebeat Configuration YAML File](https://github.com/Abdelmalek-Aouissa/ELK_Stack_Deployment/blob/main/Ansible/filebeat-config.yml)
+  - [Filebeat Playbook YAML File](https://github.com/Abdelmalek-Aouissa/ELK_Stack_Deployment/blob/main/Ansible/filebeat-playbook.yml)
+  - [Hosts File](https://github.com/Abdelmalek-Aouissa/ELK_Stack_Deployment/blob/main/Ansible/hosts.txt)
+  - [Metricbeat Configuration YAML File](https://github.com/Abdelmalek-Aouissa/ELK_Stack_Deployment/blob/main/Ansible/metricbeat-config.yml)
+  - []()
+  
 This document contains the following details:
 1- Description of the Topology
 2- Access Policies
@@ -100,7 +106,6 @@ These Beats enable us to collect information from each of the above mentioned ma
 	- Filebeat collects and shapes data in log forms for easy forwarding and centralization. It then ships
 	the logs to elastic search for instance for further analysis. Log files comprise various logs, such as event logs and system logs and so on.
 	For example, when a user attemps to log into an account, this would be, in realtime, detected by Filebeat.
-		
 	- Metricbeat, when installed on a server, collects metric data related to the operating systems, such as the CPU, memory, ..., etc. Metricbeat may also be used to monitor other beats, processes or services running on the server.
 		
 ### Using the Playbook
@@ -118,7 +123,7 @@ SSH into the control node and follow the steps below:
 		
 	- Run the playbook, and navigate to http://[ELK.VM.Public.IP]:5601/app/kibana in order to check that the installation has worked as expected.
                                                 
-	The following are the main commands that were used in order to download the playbook, update the files,..., etc.:
+	The following are the main commands that can be used in order to download the playbook, update the files,..., etc.:
 		- $ ssh azure_Polaris@104.42.159.55 //
 		- azure_Polaris@JumpBoxProvisioner:~$ sudo su
 		- root@JumpBoxProvisioner:/home/azure_Polaris# docker ps
