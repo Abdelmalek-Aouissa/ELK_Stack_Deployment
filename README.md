@@ -56,16 +56,16 @@ The Workstation, local machine, is also allowed to browse into ELK, via HTTP ser
 A summary of the access policies in place can be found in Table-2:
 
 Table-2
- --------------------------------------------------------------------------------------
+ ------------------------------------------------------------------------------------------
 |   Name   	    | Publicly Accessible (Yes/No)|         Allowed IP Addresses           |
-|---------------|-----------------------------|----------------------------------------|
+|-------------------|-----------------------------|----------------------------------------|
 | Jump Box	    |            Yes              | Home-IP (Local machine) -              |
-| Load Balancer |            Yes              | Home-IP (Local machine) - 40.83.176.20 |
+| Load Balancer     |            Yes              | Home-IP (Local machine) - 40.83.176.20 |
 | ELK      	    |            Yes              | Home-IP (Local machine) -  10.0.0.4    |
 | Web-1    	    |            No               |                         -  10.0.0.4    |
 | Web-2    	    |            No               |                         -  10.0.0.4    |
 | Web-3   	    |            No               |                         -  10.0.0.4    |
- --------------------------------------------------------------------------------------
+ ------------------------------------------------------------------------------------------
  
 ### Elk Configuration
 
