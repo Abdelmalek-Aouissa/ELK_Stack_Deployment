@@ -94,44 +94,44 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-	- Web-1: 10.0.0.5
-	- Web-2: 10.0.0.6
-	- Web-3: 10.0.0.7
+* Web-1: 10.0.0.5
+* Web-2: 10.0.0.6
+* Web-3: 10.0.0.7
 
 We have installed the following Beats on the above mentioned machines:
-	- Filebeats.
-	- Metricbeat.
+* Filebeats.
+* Metricbeat.
 
-These Beats enable us to collect information from each of the above mentioned machines:
-	- Filebeat collects and shapes data in log forms for easy forwarding and centralization. It then ships
-	the logs to elastic search for instance for further analysis. Log files comprise various logs, such as event logs and system logs and so on.
-	For example, when a user attemps to log into an account, this would be, in realtime, detected by Filebeat.
-	- Metricbeat, when installed on a server, collects metric data related to the operating systems, such as the CPU, memory, ..., etc. Metricbeat may also be used to monitor other beats, processes or services running on the server.
+These Beats enable us to monitor, and collect information from, each of the above mentioned machines.
+
+Filebeat collects and shapes data in log forms for easy forwarding and centralization. It then ships the logs to elastic search for instance for further analysis. Log files comprise various logs, such as event logs and system logs and so on. For example, when a user attemps to log into an account, this would be, in realtime, detected by Filebeat.
+
+Metricbeat, when installed on a server, collects metric data related to the operating systems, such as the CPU, memory, ..., etc. Metricbeat may also be used to monitor other beats, processes or services running on the server.
 		
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-	- Copy the 'filebeat-config.yml' file to '/etc/ansible/files/'.
-	- Update the 'hosts' file to include the ip adresses of the VMs to be configured:
-		[webservers]
-		10.0.0.5 ansible_python_interpreter=/usr/bin/python3
-		10.0.0.6 ansible_python_interpreter=/usr/bin/python3
-		10.0.0.7 ansible_python_interpreter=/usr/bin/python3
-		[elk]
-		10.1.0.4 ansible_python_interpreter=/usr/bin/python3
-		
-	- Run the playbook, and navigate to http://[ELK.VM.Public.IP]:5601/app/kibana in order to check that the installation has worked as expected.
+- Copy the 'filebeat-config.yml' file to '/etc/ansible/files/'.
+- Update the 'hosts' file to include the ip adresses of the VMs to be configured:
+  - [webservers]
+    - 10.0.0.5 ansible_python_interpreter=/usr/bin/python3
+    - 10.0.0.6 ansible_python_interpreter=/usr/bin/python3
+    - 10.0.0.7 ansible_python_interpreter=/usr/bin/python3
+  - [elk]
+    - 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
+
+- Run the playbook, and navigate to http://[ELK.VM.Public.IP]:5601/app/kibana in order to check that the installation has worked as expected.
                                                 
-	The following are the main commands that can be used in order to download the playbook, update the files,..., etc.:
-		- $ ssh azure_Polaris@104.42.159.55 //
-		- azure_Polaris@JumpBoxProvisioner:~$ sudo su
-		- root@JumpBoxProvisioner:/home/azure_Polaris# docker ps
-		- root@JumpBoxProvisioner:/home/azure_Polaris# docker start strange_mclaren
-		- root@JumpBoxProvisioner:/home/azure_Polaris# docker attach strange_mclaren
-		- root@bdac5773ea35:/etc/ansible# cd /etc/ansible/
-		- root@bdac5773ea35:/etc/ansible# nano hosts
-		- curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb > /etc/filebeat/filebeat.yml
-		- sudo dpkg -i filebeat-7.4.0-amd64.deb
-		- ansible-playbook filebeat-playbook.yml
-		- curl localhost/setup.php
+The following are the main commands that can be used in order to download the playbook, update the files,..., etc.:
+- $ ssh azure_Polaris@104.42.159.55
+- azure_Polaris@JumpBoxProvisioner:~$ sudo su
+- root@JumpBoxProvisioner:/home/azure_Polaris# docker ps
+- root@JumpBoxProvisioner:/home/azure_Polaris# docker start strange_mclaren
+- root@JumpBoxProvisioner:/home/azure_Polaris# docker attach strange_mclaren
+- root@bdac5773ea35:/etc/ansible# cd /etc/ansible/
+- root@bdac5773ea35:/etc/ansible# nano hosts
+- curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb > /etc/filebeat/filebeat.yml
+- sudo dpkg -i filebeat-7.4.0-amd64.deb
+- ansible-playbook filebeat-playbook.yml
+- curl localhost/setup.php
